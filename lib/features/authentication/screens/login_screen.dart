@@ -1,3 +1,4 @@
+import 'package:deer_valley_teahouse/constants/authentication_colors.dart';
 import 'package:deer_valley_teahouse/features/authentication/screens/sign_up_screen.dart';
 import 'package:deer_valley_teahouse/features/menu/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: AuthenticationColors.orangeText,
                       foregroundColor: Colors.white,
                     ),
                     onPressed: () {

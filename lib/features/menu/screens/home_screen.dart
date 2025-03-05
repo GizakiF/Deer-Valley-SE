@@ -163,11 +163,14 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween, // Adjust spacing as needed
+                  MainAxisAlignment.spaceAround, // Adjust spacing as needed
               children: [
                 Expanded(
                   child: Container(
-                    // decoration: BoxDecoration(border: BoxBor),
+                    width: 140,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.brown),
+                    ),
                     child: Column(
                       children: [
                         Image(
@@ -175,19 +178,30 @@ class HomeScreen extends StatelessWidget {
                           width: 150,
                         ),
                         Text('Placeholder'),
+                        Text(
+                          'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+                        ),
                       ],
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Column(
-                    children: [
-                      Image(
-                        image: AssetImage('assets/images/food.jpg'),
-                        width: 150,
-                      ),
-                      Text('Placeholder'),
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.brown),
+                    ),
+                    child: Column(
+                      children: [
+                        Image(
+                          image: AssetImage('assets/images/food.jpg'),
+                          width: 150,
+                        ),
+                        Text('Placeholder'),
+                        Text(
+                          'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

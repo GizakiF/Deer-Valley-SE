@@ -1,3 +1,4 @@
+import 'package:deer_valley_teahouse/constants/authentication_colors.dart';
 import 'package:deer_valley_teahouse/features/authentication/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Text("Agree to ", style: TextStyle(color: Colors.white)),
                 Text(
                   "Terms & Condition",
-                  style: TextStyle(color: Colors.orange),
+                  style: TextStyle(color: AuthenticationColors.orangeText),
                 ),
               ],
             ),
@@ -64,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
+                    backgroundColor: AuthenticationColors.orangeText,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -101,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                     child: Text(
                       'Log in',
-                      style: TextStyle(color: Colors.orange),
+                      style: TextStyle(color: AuthenticationColors.orangeText),
                     ),
                   ),
                 ],
