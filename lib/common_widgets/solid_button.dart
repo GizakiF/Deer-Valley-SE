@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 class SolidButton extends StatefulWidget {
   final Widget navigation;
   final String buttonText;
+  final bool isActive; // New parameter to determine active state
+
   const SolidButton({
     super.key,
     required this.navigation,
-    this.buttonText = "",
+    this.buttonText = "Home",
+    this.isActive = true, // Default to active
   });
 
   @override
@@ -18,11 +21,32 @@ class _SolidButtonState extends State<SolidButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        MaterialPageRoute(builder: (context) => widget.navigation);
-      },
-      style: ElevatedButton.styleFrom(backgroundColor: CustomColors.inactive),
-      child: Text(widget.buttonText),
-    );
+      onPressed: widget.isActive
+          ? () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => widget.navigation),
+              );
+            }
+          : null, // Disables the button when inactive
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+          (Set<MaterialState> states) {
+            if (states.contains(MaterialState.pressed)) {
+              return CustomColors.brown; // Change color when pressed
+            } else if (!widget.isActive) {
+              return CustomColors.inactive; // Change color when inactive
+            }
+            return CustomColors.active; // Default active color
+          },
+        ),
+      ),
+      child: Text(
+        widget.buttonText,
+        style: TextStyle(
+          color: widget.isActive ? Colors.white : Colors.grey, // Change text color
+        ),
+      ),
+    ); 
   }
 }
