@@ -1,5 +1,6 @@
+import 'package:deer_valley_teahouse/common_widgets/basic_placeholder.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 import 'widgets/CustomListTileWidget.dart';
 
 class LearntCustomWidgets extends StatefulWidget {
@@ -31,10 +32,6 @@ class _LearntCustomWidgetsState extends State<LearntCustomWidgets> {
           CustomListTileWidget(title: "Hello", subtitle: "hahaha"),
           CustomListTileWidget(title: "Hello", subtitle: "hahaha"),
           CustomListTileWidget(title: "Hello", subtitle: "hahaha"),
-          CustomButton(),
-          CustomButton(),
-          CustomButton(),
-          CustomButton(),
         ],
       ),
     );

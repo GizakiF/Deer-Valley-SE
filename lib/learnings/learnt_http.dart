@@ -25,7 +25,7 @@ class _LearnHttpState extends State<LearnHttp> {
                   _msg = "fadf";
                 } else {
                   // _msg = "hahaha";
-                  getMessageFromAPI();
+                  getMessageFromAPI("DONNNNALD");
                 }
                 _toggle = !_toggle;
               });
@@ -37,9 +37,16 @@ class _LearnHttpState extends State<LearnHttp> {
     );
   }
 
-  void getMessageFromAPI() async {
+  void getMessageFromAPI(String name) async {
     String url = "http://10.0.2.2/flutter/api/test_api.php";
-    http.Response response = await http.get(Uri.parse(url));
+
+    final Map<String, dynamic> queryParams = {
+      "firstName": name,
+      "address": "USA",
+    };
+    http.Response response = await http.get(
+      Uri.parse(url).replace(queryParameters: queryParams),
+    );
     if (response.statusCode == 200) {
       setState(() {
         _msg = response.body;
