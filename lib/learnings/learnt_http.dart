@@ -38,7 +38,10 @@ class _LearnHttpState extends State<LearnHttp> {
   }
 
   void getMessageFromAPI(String name) async {
-    String url = "http://10.0.2.2/flutter/api/test_api.php";
+    // android emu uri
+    // String url = "http://10.0.2.2/flutter/api/test_api.php";
+    // linux uri
+    String url = "http://localhost/flutter/api/test_api.php";
 
     final Map<String, dynamic> queryParams = {
       "firstName": name,

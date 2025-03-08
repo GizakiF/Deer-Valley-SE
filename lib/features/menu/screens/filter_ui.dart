@@ -1,4 +1,4 @@
-import 'package:deer_valley_teahouse/features/menu/screens/home_screen.dart';
+import 'package:deer_valley_teahouse/constants/screens.dart';
 import 'package:flutter/material.dart';
 
 class FilterUI extends StatefulWidget {
@@ -34,7 +34,7 @@ class _FilterUIState extends State<FilterUI> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return HomeScreen();
+                    return Screens.mainScreen();
                   },
                 ),
               ),

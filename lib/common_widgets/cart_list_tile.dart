@@ -1,5 +1,7 @@
+import 'package:deer_valley_teahouse/constants/custom_buttons.dart';
 import 'package:deer_valley_teahouse/constants/custom_colors.dart';
 import 'package:deer_valley_teahouse/constants/images.dart';
+import 'package:deer_valley_teahouse/constants/screens.dart';
 import 'package:flutter/material.dart';
 
 class CartListTile extends StatefulWidget {
@@ -7,17 +9,17 @@ class CartListTile extends StatefulWidget {
   final String listTitle, date;
   final int itemCount;
   final double totalPrice;
-  final Image? listImage;
+  final String listImage;
   final IconData listIcon;
 
   const CartListTile({
     super.key,
     this.listTile,
-    required this.listTitle,
-    required this.date,
-    required this.itemCount,
-    required this.totalPrice,
-    this.listImage,
+    this.listTitle = "Menu Name",
+    this.date = "date here",
+    this.itemCount = 0,
+    this.totalPrice = 0.0,
+    this.listImage = Images.teaImage,
     this.listIcon = Icons.label,
   });
 
@@ -26,19 +28,83 @@ class CartListTile extends StatefulWidget {
 }
 
 class _CartListTileState extends State<CartListTile> {
+  String _msgItem = "item";
+
   @override
   Widget build(BuildContext context) {
+    // if (widget.itemCount > 1) {
+    //   setState(() {
+    //     _msgItem = "items";
+    //   });
+    // } else {
+    //   setState(() {
+    //     _msgItem = "item";
+    //   });
+    // }
     return Column(
       children: [
-        Divider(color: CustomColors.brown),
-        ListTile(
-          leading: Image(image: Images.teaImage.image),
-          title: Text(
-            widget.listTitle,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text(widget.date),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 100,
+              height: 150,
+              child: Image.asset(widget.listImage),
+            ),
+            SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        widget.listTitle,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        "₱ ${widget.totalPrice.toString()}",
+                        style: TextStyle(
+                          color: CustomColors.price,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Spacer(),
+                      Text(
+                        "${widget.itemCount.toString()} $_msgItem",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: CustomColors.darkBrown,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 15),
+                  Row(
+                    children: [
+                      CustomButtons.solidButton(
+                        destination: Screens.mainScreen(),
+                        buttonText: "Remove",
+                      ),
+                      Expanded(child: Spacer()),
+                      CustomButtons.incrementDecrementButton(),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
+        Divider(color: CustomColors.brown),
       ],
     );
   }

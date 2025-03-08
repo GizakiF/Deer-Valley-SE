@@ -7,6 +7,7 @@ class BasicPlaceholder extends StatefulWidget {
   final IconData? placeholderIcon;
   final Widget? contentWidget;
   final ListView listView;
+  final List<Widget> navigationItems;
 
   const BasicPlaceholder({
     super.key,
@@ -14,6 +15,7 @@ class BasicPlaceholder extends StatefulWidget {
     this.placeholderIcon,
     this.contentWidget,
     required this.listView,
+    this.navigationItems = const [],
   });
 
   @override
@@ -73,6 +75,7 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
     return SizedBox(
       width: double.infinity,
       child: Card(
+        // margin: EdgeInsets.zero,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(borderRadius),
@@ -81,14 +84,16 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
         ),
         child: Padding(
           padding: EdgeInsets.all(padding),
-          child: widget.listView,
+          child: Column(
+            children: [
+              Row(children: widget.navigationItems),
+              Divider(color: CustomColors.brown),
+              Expanded(child: widget.listView),
+            ],
+          ),
         ),
       ),
     );
-  }
-
-  Widget _rowItems() {
-    return Row();
   }
 
   Widget _backButton() {
@@ -99,7 +104,7 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
           Navigator.pop(context);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Screens.homeScreen()),
+            MaterialPageRoute(builder: (context) => Screens.mainScreen()),
           );
         },
         icon: Icon(Icons.chevron_left, color: Colors.white),

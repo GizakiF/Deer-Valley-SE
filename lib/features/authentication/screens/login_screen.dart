@@ -1,6 +1,6 @@
 import 'package:deer_valley_teahouse/constants/authentication_colors.dart';
+import 'package:deer_valley_teahouse/constants/screens.dart';
 import 'package:deer_valley_teahouse/features/authentication/screens/sign_up_screen.dart';
-import 'package:deer_valley_teahouse/features/menu/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return HomeScreen();
+                            return Screens.mainScreen();
                           },
                         ),
                       );
