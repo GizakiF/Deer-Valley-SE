@@ -33,15 +33,15 @@ class _CartListTileActiveState extends State<CartListTileActive> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.itemCount > 1) {
-      setState(() {
-        _msgItem = "items";
-      });
-    } else {
-      setState(() {
-        _msgItem = "item";
-      });
-    }
+    // if (widget.itemCount > 1) {
+    //   setState(() {
+    //     _msgItem = "items";
+    //   });
+    // } else {
+    //   setState(() {
+    //     _msgItem = "item";
+    //   });
+    // }
     return Column(
       children: [
         Row(
@@ -59,6 +59,7 @@ class _CartListTileActiveState extends State<CartListTileActive> {
                 children: [
                   Row(
                     children: [
+                      // TODO: FIX, when on longer strings, it jjust overflows
                       Text(
                         widget.listTitle,
                         style: TextStyle(

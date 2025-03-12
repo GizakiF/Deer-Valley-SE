@@ -2,15 +2,17 @@ import 'package:deer_valley_teahouse/constants/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class SolidButton extends StatefulWidget {
-  final Widget navigation;
+  final Widget? navigation;
+  final Function? function;
   final String buttonText;
   final bool isActive; // New parameter to determine active state
 
   const SolidButton({
     super.key,
-    required this.navigation,
+    this.navigation,
     this.buttonText = "Button Text",
     this.isActive = true, // Default to active
+    this.function,
   });
 
   @override
@@ -24,10 +26,7 @@ class _SolidButtonState extends State<SolidButton> {
       onPressed:
           widget.isActive
               ? () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => widget.navigation),
-                );
+                widget.function!();
               }
               : null, // Disables the button when inactive
       style: ButtonStyle(

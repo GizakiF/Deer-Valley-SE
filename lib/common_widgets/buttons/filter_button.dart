@@ -14,7 +14,6 @@ class _FilterButtonState extends State<FilterButton> {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {},
-      // TODO: change the icon
       icon: Padding(
         padding: const EdgeInsets.all(4.5),
         child: HugeIcon(
@@ -24,6 +23,7 @@ class _FilterButtonState extends State<FilterButton> {
         ),
       ),
       style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
         side: BorderSide(color: CustomColors.darkBrown, width: 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),

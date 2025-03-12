@@ -8,10 +8,15 @@ import 'package:flutter/material.dart';
 
 class CustomButtons {
   static Widget solidButton({
-    required Widget destination,
+    Widget? destination,
     String buttonText = "Button Text",
+    Function? function,
   }) {
-    return SolidButton(navigation: destination, buttonText: buttonText);
+    return SolidButton(
+      navigation: destination,
+      buttonText: buttonText,
+      function: function,
+    );
   }
 
   static Widget incrementDecrementButton() => IncrementDecrementButton();

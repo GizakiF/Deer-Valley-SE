@@ -32,10 +32,10 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
-              _backButton(),
-              Positioned(top: 20, left: 0, right: 0, child: _topPortion()),
+              Positioned(top: 30, child: _backButton()),
+              Positioned(top: 30, left: 0, right: 0, child: _topPortion()),
               Positioned(
-                top: 90,
+                top: 100,
                 bottom: 0,
                 left: 0,
                 right: 0,
@@ -75,7 +75,7 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        // margin: EdgeInsets.zero,
+        margin: EdgeInsets.only(left: 5, right: 5),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(borderRadius),
@@ -98,11 +98,10 @@ class _BasicPlaceholderState extends State<BasicPlaceholder> {
 
   Widget _backButton() {
     return Align(
-      alignment: Alignment.topLeft,
       child: IconButton(
+        alignment: Alignment.topLeft,
         onPressed: () {
-          Navigator.pop(context);
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => Screens.mainScreen()),
           );

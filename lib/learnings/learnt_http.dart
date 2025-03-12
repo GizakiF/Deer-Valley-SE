@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,15 +19,15 @@ class _LearnHttpState extends State<LearnHttp> {
       body: Column(
         children: [
           TextFormField(),
-          Text(_msg),
+          SelectableText(_msg),
           IconButton(
             onPressed: () {
               setState(() {
                 if (!_toggle) {
-                  _msg = "fadf";
+                  _msg = "xxxxsss";
                 } else {
                   // _msg = "hahaha";
-                  getMessageFromAPI("DONNNNALD");
+                  getMessageFromAPI("Hhahah");
                 }
                 _toggle = !_toggle;
               });
@@ -38,21 +40,27 @@ class _LearnHttpState extends State<LearnHttp> {
   }
 
   void getMessageFromAPI(String name) async {
-    // android emu uri
-    // String url = "http://10.0.2.2/flutter/api/test_api.php";
-    // linux uri
-    String url = "http://localhost/flutter/api/test_api.php";
+    // String url = "http://10.0.2.2:8000/connect.php";
+    String url = "https://catfact.ninja/fact";
 
-    final Map<String, dynamic> queryParams = {
-      "firstName": name,
-      "address": "USA",
-    };
-    http.Response response = await http.get(
-      Uri.parse(url).replace(queryParameters: queryParams),
-    );
-    if (response.statusCode == 200) {
+    // final Map<String, dynamic> queryParams = {"name": name, "address": "USA"};
+
+    try {
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        setState(() {
+          Map<String, dynamic> cat = jsonDecode(response.body);
+          _msg = cat['fact'];
+        });
+      } else {
+        setState(() {
+          _msg = "Error: ${response.statusCode}";
+        });
+      }
+    } catch (e) {
       setState(() {
-        _msg = response.body;
+        _msg = "Request Failed: $e";
       });
     }
   }

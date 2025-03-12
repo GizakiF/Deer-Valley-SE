@@ -69,9 +69,10 @@ class _MenuListTileState extends State<MenuListTile> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("₱ ${widget.menuPrice.toString()}"),
-                Spacer(),
+                // TODO: make the peso sign display
+                Text("₱ ${widget.menuPrice.toStringAsFixed(2)}"),
                 // TODO: align it to the right
                 CustomButtons.plusSolidButton(),
               ],

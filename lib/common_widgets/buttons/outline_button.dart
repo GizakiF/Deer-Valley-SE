@@ -5,11 +5,13 @@ class OutlineButton extends StatefulWidget {
   final String buttonIcon;
   final String buttonText;
   final Widget? destination;
+  final Function? function;
   const OutlineButton({
     super.key,
     this.buttonIcon = CustomUTF.teaUtf,
     this.buttonText = "Button",
     this.destination,
+    this.function,
   });
 
   @override
@@ -23,7 +25,9 @@ class _OutlineButtonState extends State<OutlineButton> {
       margin: EdgeInsets.symmetric(horizontal: 4),
       child: ElevatedButton(
         //TODO: find a way to not only navigate through screens but also to have certain funnctions
-        onPressed: () {},
+        onPressed: () {
+          widget.function;
+        },
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,

@@ -1,4 +1,5 @@
 import 'package:deer_valley_teahouse/features/cart/screens/active_orders_screen.dart';
+import 'package:deer_valley_teahouse/features/menu/screens/home_screen.dart';
 import 'package:deer_valley_teahouse/features/menu/screens/main_screen.dart';
 import 'package:deer_valley_teahouse/learnings/learnt_http.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class Screens {
   //   );
   // }
 
+  static Widget homeScreen() => HomeScreen();
   static Widget loginScreen() => LoginScreen();
   static Widget signUpScreen() => SignUpScreen();
   static Widget cartScreen() => CartScreen();

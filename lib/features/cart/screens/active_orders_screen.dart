@@ -25,17 +25,12 @@ class _ActiveOrdersScreenState extends State<ActiveOrdersScreen> {
           ),
         ),
         SizedBox(width: 10),
-        Expanded(
-          child: CustomButtons.solidButton(
-            destination: Screens.activeOrdersScreen(),
-            buttonText: "Active",
-          ),
-        ),
+        Expanded(child: CustomButtons.solidButton(buttonText: "Active")),
       ],
       listView: ListView(
         children: [
           CartListTileActive(
-            listTitle: "Chocolate Milk Tea",
+            listTitle: "Milk Tea",
             date: "2025-03-07",
             itemCount: 4,
             totalPrice: 100.0,

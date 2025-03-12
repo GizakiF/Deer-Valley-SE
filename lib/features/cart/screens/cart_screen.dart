@@ -29,8 +29,15 @@ class _CartScreenState extends State<CartScreen> {
         SizedBox(width: 10),
         Expanded(
           child: CustomButtons.solidButton(
-            destination: Screens.activeOrdersScreen(),
             buttonText: "Active",
+            function: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Screens.activeOrdersScreen(),
+                ),
+              );
+            },
           ),
         ),
       ],

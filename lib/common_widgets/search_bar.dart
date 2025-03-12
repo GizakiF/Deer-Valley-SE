@@ -12,6 +12,8 @@ class _MenuSearchBarState extends State<MenuSearchBar> {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
         labelText: "Search",
         prefixIcon: Icon(Icons.search),
         enabledBorder: OutlineInputBorder(

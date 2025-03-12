@@ -89,15 +89,20 @@ class _CartListTileState extends State<CartListTile> {
                     ],
                   ),
                   SizedBox(height: 15),
-                  Row(
-                    children: [
-                      CustomButtons.solidButton(
-                        destination: Screens.mainScreen(),
-                        buttonText: "Remove",
-                      ),
-                      Expanded(child: Spacer()),
-                      CustomButtons.incrementDecrementButton(),
-                    ],
+
+                  // REMOVE and incremen/decrement buttton
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Wrap(
+                      children: [
+                        CustomButtons.solidButton(
+                          destination: Screens.mainScreen(),
+                          buttonText: "Remove",
+                        ),
+                        Spacer(),
+                        CustomButtons.incrementDecrementButton(),
+                      ],
+                    ),
                   ),
                 ],
               ),

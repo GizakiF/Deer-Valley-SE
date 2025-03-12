@@ -1,3 +1,4 @@
+// TODO: update the UI of the login screen
 import 'package:deer_valley_teahouse/constants/authentication_colors.dart';
 import 'package:deer_valley_teahouse/constants/screens.dart';
 import 'package:deer_valley_teahouse/features/authentication/screens/sign_up_screen.dart';
